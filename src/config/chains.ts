@@ -17,6 +17,7 @@ export const ARBITRUM = 42161;
 export const ARBITRUM_GOERLI = 421613;
 export const FEES_HIGH_BPS = 50;
 export const DEFAULT_ALLOWED_SLIPPAGE_BPS = 30;
+export const HARMONY = 1666600000;
 
 // TODO take it from web3
 export const DEFAULT_CHAIN_ID = ARBITRUM;
@@ -35,6 +36,7 @@ export const IS_NETWORK_DISABLED = {
 };
 
 export const CHAIN_NAMES_MAP = {
+  [HARMONY]: "HARMONY",
   [BSС_MAINNET]: "BSC",
   [BSС_TESTNET]: "BSC Testnet",
   [ARBITRUM_GOERLI]: "Arbitrum Goerli",
