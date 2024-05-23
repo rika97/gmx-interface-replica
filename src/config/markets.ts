@@ -1,5 +1,5 @@
 import mapValues from "lodash/mapValues";
-import { ARBITRUM, AVALANCHE, BSС_MAINNET } from "./chains";
+import { ARBITRUM, AVALANCHE, BSС_MAINNET, HARMONY } from "./chains";
 import { isDevelopment } from "config/env";
 
 export const ENABLED_MARKETS = {
@@ -39,6 +39,7 @@ export const ENABLED_MARKETS = {
     "0xDf8c9BD26e7C1A331902758Eb013548B2D22ab3b", // SWAP-ONLY [USDC-DAI.e]
   ],
   [BSС_MAINNET]: [],
+  [HARMONY]: [],
 };
 
 export const ENABLED_MARKETS_INDEX = mapValues<Record<number, string[]>>(ENABLED_MARKETS, (markets) =>

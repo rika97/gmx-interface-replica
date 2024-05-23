@@ -23,7 +23,7 @@ export const HARMONY = 1666600000;
 export const DEFAULT_CHAIN_ID = ARBITRUM;
 export const CHAIN_ID = DEFAULT_CHAIN_ID;
 
-export const SUPPORTED_CHAIN_IDS = [ARBITRUM, AVALANCHE];
+export const SUPPORTED_CHAIN_IDS = [HARMONY, ARBITRUM, AVALANCHE];
 
 if (isDevelopment()) {
   SUPPORTED_CHAIN_IDS.push(AVALANCHE_FUJI, ARBITRUM_GOERLI);
@@ -31,12 +31,13 @@ if (isDevelopment()) {
 
 export const IS_NETWORK_DISABLED = {
   [ARBITRUM]: false,
+  [HARMONY]: false,
   [AVALANCHE]: false,
   [BSС_MAINNET]: false,
 };
 
 export const CHAIN_NAMES_MAP = {
-  [HARMONY]: "HARMONY",
+  [HARMONY]: "Harmony",
   [BSС_MAINNET]: "BSC",
   [BSС_TESTNET]: "BSC Testnet",
   [ARBITRUM_GOERLI]: "Arbitrum Goerli",
@@ -71,6 +72,7 @@ export const EXECUTION_FEE_MULTIPLIER_MAP = {
   // for executing positions this is around 65,000 gas
   // if gas prices on Ethereum are high, than the gas usage might be higher, this calculation doesn't deal with that
   // case yet
+  [HARMONY]: 65000,
   [ARBITRUM]: 65000,
   // multiplier for Avalanche is just the average gas usage
   [AVALANCHE]: 700000,
@@ -98,6 +100,10 @@ export const EXECUTION_FEE_CONFIG_V2: {
     defaultBufferBps: 1000, // 10%
   },
   [ARBITRUM]: {
+    shouldUseMaxPriorityFeePerGas: false,
+    defaultBufferBps: 1000, // 10%
+  },
+  [HARMONY]: {
     shouldUseMaxPriorityFeePerGas: false,
     defaultBufferBps: 1000, // 10%
   },
@@ -179,11 +185,26 @@ const constants = {
     // contract requires that execution fee be strictly greater than instead of gte
     DECREASE_ORDER_EXECUTION_GAS_FEE: parseEther("0.0100001"),
   },
+
+  [HARMONY]: {
+    nativeTokenSymbol: "ONE",
+    wrappedTokenSymbol: "WONE",
+    defaultCollateralSymbol: "USDC.e",
+    defaultFlagOrdersEnabled: false,
+    positionReaderPropsLength: 9,
+    v2: false,
+
+    SWAP_ORDER_EXECUTION_GAS_FEE: parseEther("0.0003"),
+    INCREASE_ORDER_EXECUTION_GAS_FEE: parseEther("0.0003"),
+    // contract requires that execution fee be strictly greater than instead of gte
+    DECREASE_ORDER_EXECUTION_GAS_FEE: parseEther("0.000300001"),
+  },
 };
 
 const ALCHEMY_WHITELISTED_DOMAINS = ["gmx.io", "app.gmx.io"];
 
 export const RPC_PROVIDERS = {
+  [HARMONY]: ["https://api.harmony.one"],
   [ETH_MAINNET]: ["https://rpc.ankr.com/eth"],
   [BSС_MAINNET]: [
     "https://bsc-dataseed.binance.org",
@@ -230,6 +251,17 @@ export const FALLBACK_PROVIDERS = {
 };
 
 export const NETWORK_METADATA: { [chainId: number]: NetworkMetadata } = {
+  [HARMONY]: {
+    chainId: "0x" + HARMONY.toString(16),
+    chainName: "HMY",
+    nativeCurrency: {
+      name: "ONE",
+      symbol: "ONE",
+      decimals: 18,
+    },
+    rpcUrls: RPC_PROVIDERS[HARMONY],
+    blockExplorerUrls: ["http://explorer.harmony.one"],
+  },
   [BSС_MAINNET]: {
     chainId: "0x" + BSС_MAINNET.toString(16),
     chainName: "BSC",
@@ -351,6 +383,8 @@ export function getExplorerUrl(chainId) {
     return "https://arbiscan.io/";
   } else if (chainId === AVALANCHE) {
     return "https://snowtrace.io/";
+  } else if (chainId === HARMONY) {
+    return "explorer.harmony.one/";
   } else if (chainId === AVALANCHE_FUJI) {
     return "https://testnet.snowtrace.io/";
   }

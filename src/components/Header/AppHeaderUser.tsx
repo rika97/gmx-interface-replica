@@ -4,7 +4,7 @@ import ConnectWalletButton from "../Common/ConnectWalletButton";
 
 import { Trans } from "@lingui/macro";
 import cx from "classnames";
-import { ARBITRUM, ARBITRUM_GOERLI, AVALANCHE, AVALANCHE_FUJI, getChainName } from "config/chains";
+import { ARBITRUM, ARBITRUM_GOERLI, AVALANCHE, AVALANCHE_FUJI, HARMONY, getChainName } from "config/chains";
 import { isDevelopment } from "config/env";
 import { getIcon } from "config/icons";
 import { useChainId } from "lib/chains";
@@ -25,6 +25,12 @@ type Props = {
 };
 
 const NETWORK_OPTIONS = [
+  {
+    label: getChainName(HARMONY),
+    value: HARMONY,
+    icon: getIcon(HARMONY, "network"),
+    color: "#264f79",
+  },
   {
     label: getChainName(ARBITRUM),
     value: ARBITRUM,
