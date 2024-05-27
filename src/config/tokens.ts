@@ -1,11 +1,47 @@
 import { Token } from "domain/tokens";
 import { ethers } from "ethers";
-import { ARBITRUM, ARBITRUM_GOERLI, AVALANCHE, AVALANCHE_FUJI } from "./chains";
+import { ARBITRUM, ARBITRUM_GOERLI, AVALANCHE, AVALANCHE_FUJI, HARMONY } from "./chains";
 import { getContract } from "./contracts";
 
 export const NATIVE_TOKEN_ADDRESS = ethers.constants.AddressZero;
 
 export const TOKENS: { [chainId: number]: Token[] } = {
+  [HARMONY]: [
+    {
+      name: "Harmony ONE",
+      symbol: "ONE",
+      decimals: 18,
+      address: ethers.constants.AddressZero,
+      isNative: true,
+      isShortable: true,
+      imageUrl: "https://assets.coingecko.com/coins/images/279/small/ethereum.png?1595348880",
+      coingeckoUrl: "https://www.coingecko.com/en/coins/ethereum",
+      isV1Available: true,
+    },
+    {
+      name: "Bridged USDC (USDC.e)",
+      symbol: "USDC.e",
+      decimals: 6,
+      address: "0xFF970A61A04b1cA14834A43f5dE4533eBDDB5CC8",
+      isStable: true,
+      imageUrl: "https://assets.coingecko.com/coins/images/6319/thumb/USD_Coin_icon.png?1547042389",
+      coingeckoUrl: "https://www.coingecko.com/en/coins/bridged-usdc-arbitrum",
+      explorerUrl: "https://arbiscan.io/token/0xFF970A61A04b1cA14834A43f5dE4533eBDDB5CC8",
+      isV1Available: true,
+    },
+    {
+      name: "Wrapped ONE",
+      symbol: "WONE",
+      decimals: 18,
+      address: "0xcF664087a5bB0237a0BAd6742852ec6c8d69A27a",
+      isWrapped: true,
+      baseSymbol: "ONE",
+      imageUrl: "https://assets.coingecko.com/coins/images/2518/thumb/weth.png?1628852295",
+      coingeckoUrl: "https://www.coingecko.com/en/coins/ethereum",
+      isV1Available: true,
+    },
+  ],
+
   [ARBITRUM]: [
     {
       name: "Ethereum",
@@ -934,7 +970,7 @@ export const TOKENS_BY_SYMBOL_MAP: { [chainId: number]: { [symbol: string]: Toke
 export const WRAPPED_TOKENS_MAP: { [chainId: number]: Token } = {};
 export const NATIVE_TOKENS_MAP: { [chainId: number]: Token } = {};
 
-const CHAIN_IDS = [ARBITRUM, ARBITRUM_GOERLI, AVALANCHE, AVALANCHE_FUJI];
+const CHAIN_IDS = [HARMONY, ARBITRUM, ARBITRUM_GOERLI, AVALANCHE, AVALANCHE_FUJI];
 
 for (let j = 0; j < CHAIN_IDS.length; j++) {
   const chainId = CHAIN_IDS[j];
@@ -1034,9 +1070,12 @@ export function getToken(chainId: number, address: string) {
 
 export function getTokenBySymbol(
   chainId: number,
-  symbol: string,
+  symbold: string,
   { isSynthetic = false, version }: { isSynthetic?: boolean; version?: "v1" | "v2" } = {}
 ) {
+  let symbol = symbold === 'WONE' ? 'WETH': symbold;
+  symbol = symbol === 'ONE' ? 'ETH': symbol;
+
   let tokens = Object.values(TOKENS_MAP[chainId]);
 
   if (version) {

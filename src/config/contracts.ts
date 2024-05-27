@@ -22,7 +22,7 @@ const CONTRACTS = {
     GlpRewardRouter: "0xB70B91CE0771d3f4c81D87660f71Da31d48eB3B3",
     RewardReader: "0xBC7E09D3E88Ec310C6F7ddb7E725c30619628DA3",
     GovToken: "0x2A29D3a792000750807cc401806d6fd539928481",
-    NATIVE_TOKEN: "0xB31f66AA3C1e785363F0875A1B74E27b85FD66c7",
+    NATIVE_TOKEN: "0xcF664087a5bB0237a0BAd6742852ec6c8d69A27a",
     GLP: "0x4Ac24573d684CC7e675a3C3917f522b875148bC0",
     GMX: "0x740940D7A3CB94A32ac8dDc92484F078fa04F5c3",
     ES_GMX: "0x9E3325AB80fe07a81bfD8bF285BCDC81E3e65C07",
@@ -34,6 +34,20 @@ const CONTRACTS = {
     FeeGmxTracker: "0xd2D1162512F927a7e282Ef43a362659E4F2a728F",
     StakedGlpTracker: "0x1aDDD80E6039594eE970E5872D247bf0414C8903",
     FeeGlpTracker: "0x4e971a87900b931fF39d1Aad67697F49835400b6",
+
+    // Synthetics
+    DataStore: "0xbA2314b0f71ebC705aeEBeA672cc3bcEc510D03b",
+    EventEmitter: "0x2fbE45fCb58B7106CF0a3Be9225D5Ed5A1004cc4",
+    ExchangeRouter: "0xFE98518C9c8F1c5a216E999816c2dE3199f295D2",
+    SubaccountRouter: "0x4Ae6ecDD55ee1066477Ee4B5Fc9f4D04C4CE66E9",
+    DepositVault: "0x838a9bdf8736eD522A60F5f715e4F3FC2BC91A08",
+    WithdrawalVault: "0xaAac001C2a2727Ff2d484C4Ad7d2079C7094e7Ef",
+    OrderVault: "0x82aFd2590814a7Ce3d7ea6b63F80481F8b227bA9",
+    SyntheticsReader: "0xab747a7bb64B74D78C6527C1F148808a19120475",
+    SyntheticsRouter: "0xa960786Bc30F8587279df6116F9E0B15C5b034dE",
+    Timelock: AddressZero,
+
+    Multicall: "0x6d85594c9BD6b0833bC85AE62B360654A1e52D70",
   },
   [BSС_MAINNET]: {
     // bsc mainnet
@@ -333,7 +347,8 @@ export function getContract(chainId: number, name: string): string {
   }
 
   if (!CONTRACTS[chainId][name]) {
-    throw new Error(`Unknown contract "${name}" for chainId ${chainId}`);
+    return AddressZero;
+    // throw new Error(`Unknown contract "${name}" for chainId ${chainId}`);
   }
 
   return CONTRACTS[chainId][name];

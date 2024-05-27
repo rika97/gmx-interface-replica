@@ -31,33 +31,33 @@ const NETWORK_OPTIONS = [
     icon: getIcon(HARMONY, "network"),
     color: "#264f79",
   },
-  {
-    label: getChainName(ARBITRUM),
-    value: ARBITRUM,
-    icon: getIcon(ARBITRUM, "network"),
-    color: "#264f79",
-  },
-  {
-    label: getChainName(AVALANCHE),
-    value: AVALANCHE,
-    icon: getIcon(AVALANCHE, "network"),
-    color: "#E841424D",
-  },
+  // {
+  //   label: getChainName(ARBITRUM),
+  //   value: ARBITRUM,
+  //   icon: getIcon(ARBITRUM, "network"),
+  //   color: "#264f79",
+  // },
+  // {
+  //   label: getChainName(AVALANCHE),
+  //   value: AVALANCHE,
+  //   icon: getIcon(AVALANCHE, "network"),
+  //   color: "#E841424D",
+  // },
 ];
 
 if (isDevelopment()) {
-  NETWORK_OPTIONS.push({
-    label: getChainName(ARBITRUM_GOERLI),
-    value: ARBITRUM_GOERLI,
-    icon: getIcon(ARBITRUM_GOERLI, "network"),
-    color: "#264f79",
-  });
-  NETWORK_OPTIONS.push({
-    label: getChainName(AVALANCHE_FUJI),
-    value: AVALANCHE_FUJI,
-    icon: getIcon(AVALANCHE_FUJI, "network"),
-    color: "#E841424D",
-  });
+  // NETWORK_OPTIONS.push({
+  //   label: getChainName(ARBITRUM_GOERLI),
+  //   value: ARBITRUM_GOERLI,
+  //   icon: getIcon(ARBITRUM_GOERLI, "network"),
+  //   color: "#264f79",
+  // });
+  // NETWORK_OPTIONS.push({
+  //   label: getChainName(AVALANCHE_FUJI),
+  //   value: AVALANCHE_FUJI,
+  //   icon: getIcon(AVALANCHE_FUJI, "network"),
+  //   color: "#E841424D",
+  // });
 }
 
 export function AppHeaderUser({ openSettings, small, disconnectAccountAndCloseSettings, showRedirectModal }: Props) {

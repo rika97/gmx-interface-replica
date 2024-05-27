@@ -738,8 +738,10 @@ export default function SwapBox(props) {
     }
 
     const fromTokenInfo = getTokenInfo(infoTokens, fromTokenAddress);
+    console.log(111, fromTokenInfo, fromTokenInfo?.minPrice);
+
     if (!fromTokenInfo || !fromTokenInfo.minPrice) {
-      return [t`Incorrect network`];
+      // return [t`Incorrect network`];
     }
     if (
       !savedShouldDisableValidationForTesting &&

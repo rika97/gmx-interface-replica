@@ -20,7 +20,7 @@ export const DEFAULT_ALLOWED_SLIPPAGE_BPS = 30;
 export const HARMONY = 1666600000;
 
 // TODO take it from web3
-export const DEFAULT_CHAIN_ID = ARBITRUM;
+export const DEFAULT_CHAIN_ID = HARMONY;
 export const CHAIN_ID = DEFAULT_CHAIN_ID;
 
 export const SUPPORTED_CHAIN_IDS = [HARMONY, ARBITRUM, AVALANCHE];
@@ -260,7 +260,7 @@ export const NETWORK_METADATA: { [chainId: number]: NetworkMetadata } = {
       decimals: 18,
     },
     rpcUrls: RPC_PROVIDERS[HARMONY],
-    blockExplorerUrls: ["http://explorer.harmony.one"],
+    blockExplorerUrls: ["https://explorer.harmony.one"],
   },
   [BSС_MAINNET]: {
     chainId: "0x" + BSС_MAINNET.toString(16),
@@ -384,7 +384,7 @@ export function getExplorerUrl(chainId) {
   } else if (chainId === AVALANCHE) {
     return "https://snowtrace.io/";
   } else if (chainId === HARMONY) {
-    return "explorer.harmony.one/";
+    return "https://explorer.harmony.one/";
   } else if (chainId === AVALANCHE_FUJI) {
     return "https://testnet.snowtrace.io/";
   }
