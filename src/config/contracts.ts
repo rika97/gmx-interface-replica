@@ -13,7 +13,9 @@ export const XGMT_EXCLUDED_ACCOUNTS = [
 const CONTRACTS = {
   [HARMONY]: {
     // harmony mainnet
-    PositionRouter: "0x5D76ed731bC8Fb6eC50a0d4Bd39dA00A679E5a66",
+    PositionRouter: "0xf3f6484E2C01961Eb0Fd4217a5d7D57A791B7771",
+    // PositionRouter: "0xf3f6484E2C01961Eb0Fd4217a5d7D57A791B7771",
+    PositionManager: "0x5D76ed731bC8Fb6eC50a0d4Bd39dA00A679E5a66",
     Vault: "0x45440437e3f8dF7B4b99f0CdCA6E14B46765d791",
     Router: "0x6b471Bb4999f0d61d08ab8546b631771538b7864",
     VaultReader: "0x2500Fe3bb03B2B514b0BBF6d1Bd88A84298bBBee",
