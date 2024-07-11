@@ -22,7 +22,7 @@ const CONTRACTS = {
     Reader: "0x7119B1F55a949e4D5981c2C9d5dABd897f0feDfA",
     GlpManager: "0xe51CB3361dE553fb7B75B49E5552e9D47B4aeDb0",
     RewardRouter: "0xfa812ed63558f886d2F3Ac89984dfAe87E0D37f6", // --
-    // GlpRewardRouter: "0xB70B91CE0771d3f4c81D87660f71Da31d48eB3B3",
+    GlpRewardRouter: "0xfa812ed63558f886d2F3Ac89984dfAe87E0D37f6",
     RewardReader: "0x820B9C96ac9afE46b4AfD8912A986f180e40df6b",
     // GovToken: "0x2A29D3a792000750807cc401806d6fd539928481",
     NATIVE_TOKEN: "0xcF664087a5bB0237a0BAd6742852ec6c8d69A27a",
@@ -50,7 +50,7 @@ const CONTRACTS = {
     SyntheticsRouter: "0xa960786Bc30F8587279df6116F9E0B15C5b034dE",
     Timelock: AddressZero,
 
-    Multicall: "0x6d85594c9BD6b0833bC85AE62B360654A1e52D70",
+    Multicall: "0x34b415f4d3b332515e66f70595ace1dcf36254c5",
   },
   [BSС_MAINNET]: {
     // bsc mainnet

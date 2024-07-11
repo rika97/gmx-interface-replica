@@ -3,7 +3,7 @@ import { ARBITRUM, ARBITRUM_GOERLI, AVALANCHE, BSС_MAINNET, HARMONY } from "./c
 export const GMX_STATS_API_URL = "https://stats.gmx.io/api";
 
 const BACKEND_URLS = {
-  default: "https://gmx-server-mainnet.uw.r.appspot.com",
+  default: "https://stats.gmx.io",
 
   [BSС_MAINNET]: "https://gambit-server-staging.uc.r.appspot.com",
   [ARBITRUM_GOERLI]: "https://gambit-server-devnet.uc.r.appspot.com",

@@ -19,17 +19,6 @@ export const TOKENS: { [chainId: number]: Token[] } = {
       isV1Available: true,
     },
     {
-      name: "Bridged USDC (USDC.e)",
-      symbol: "USDC.e",
-      decimals: 6,
-      address: "0xFF970A61A04b1cA14834A43f5dE4533eBDDB5CC8",
-      isStable: true,
-      imageUrl: "https://assets.coingecko.com/coins/images/6319/thumb/USD_Coin_icon.png?1547042389",
-      coingeckoUrl: "https://www.coingecko.com/en/coins/bridged-usdc-arbitrum",
-      explorerUrl: "https://arbiscan.io/token/0x9A89d0e1b051640C6704Dde4dF881f73ADFEf39a",
-      isV1Available: true,
-    },
-    {
       name: "Wrapped ONE",
       symbol: "WONE",
       decimals: 18,
@@ -61,6 +50,15 @@ export const TOKENS: { [chainId: number]: Token[] } = {
       imageUrl: "https://etherscan.io/token/images/chainlinktoken_32.png?v=6",
       coingeckoUrl: "https://www.coingecko.com/en/coins/link-coin",
       explorerUrl: "https://explorer.harmony.one/address/0x218532a12a389a4a92fC0C5Fb22901D1c19198aA",
+    },
+    {
+      name: "GMX LP",
+      symbol: "GLP",
+      address: "0x1EE4a17871Aa61eF02B846795b7554aE7EAbb179",
+      decimals: 18,
+      imageUrl: "https://github.com/gmx-io/gmx-assets/blob/main/GMX-Assets/PNG/GLP_LOGO%20ONLY.png?raw=true",
+      reservesUrl: "https://portfolio.nansen.ai/dashboard/gmx?chain=HARMONY",
+      isPlatformToken: true,
     },
   ],
 
@@ -1095,8 +1093,8 @@ export function getTokenBySymbol(
   symbold: string,
   { isSynthetic = false, version }: { isSynthetic?: boolean; version?: "v1" | "v2" } = {}
 ) {
-  let symbol = symbold === 'WONE' ? 'WETH': symbold;
-  symbol = symbol === 'ONE' ? 'ETH': symbol;
+  let symbol = symbold === 'WONE' ? 'WONE': symbold;
+  symbol = symbol === 'ONE' ? 'ONE': symbol;
 
   let tokens = Object.values(TOKENS_MAP[chainId]);
 
@@ -1139,7 +1137,7 @@ export function convertTokenAddress(chainId: number, address: string, convertTo?
 }
 
 export function getNormalizedTokenSymbol(tokenSymbol) {
-  if (["WBTC", "WETH", "WAVAX"].includes(tokenSymbol)) {
+  if (["WBTC", "WONE", "WETH", "WAVAX"].includes(tokenSymbol)) {
     return tokenSymbol.substr(1);
   } else if (tokenSymbol.includes(".")) {
     return tokenSymbol.split(".")[0];
