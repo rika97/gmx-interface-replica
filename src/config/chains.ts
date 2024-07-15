@@ -189,7 +189,7 @@ const constants = {
   [HARMONY]: {
     nativeTokenSymbol: "ONE",
     wrappedTokenSymbol: "WONE",
-    defaultCollateralSymbol: "BUSD",
+    defaultCollateralSymbol: "USDC",
     defaultFlagOrdersEnabled: false,
     positionReaderPropsLength: 9,
     v2: false,
