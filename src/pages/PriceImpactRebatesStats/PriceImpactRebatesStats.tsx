@@ -2,7 +2,7 @@ import { Trans } from "@lingui/macro";
 import Checkbox from "components/Checkbox/Checkbox";
 import SpinningLoader from "components/Common/SpinningLoader";
 import Footer from "components/Footer/Footer";
-import { ARBITRUM, AVALANCHE, AVALANCHE_FUJI } from "config/chains";
+import { ARBITRUM, AVALANCHE, AVALANCHE_FUJI, HARMONY } from "config/chains";
 import { MarketInfo } from "domain/synthetics/markets";
 import { BigNumber } from "ethers";
 import { useChainId } from "lib/chains";
@@ -85,6 +85,7 @@ const RebateGroupRow = memo(({ rebateGroup }: { rebateGroup: RebateGroup }) => {
     (e) => {
       e.stopPropagation();
       const networkStr = {
+        [HARMONY]: "harmony",
         [ARBITRUM]: "arbitrum",
         [AVALANCHE]: "avalanche",
         [AVALANCHE_FUJI]: "avalancheFuji",

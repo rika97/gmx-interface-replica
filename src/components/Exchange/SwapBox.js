@@ -163,7 +163,7 @@ export default function SwapBox(props) {
     isPluginApproving,
     isPositionRouterApproving,
     savedShouldDisableValidationForTesting,
-    minExecutionFee,
+    minExecutionFee = 4000,
     minExecutionFeeUSD,
     minExecutionFeeErrorMessage,
     orderOption,
@@ -738,8 +738,10 @@ export default function SwapBox(props) {
     }
 
     const fromTokenInfo = getTokenInfo(infoTokens, fromTokenAddress);
+    console.log(111, fromTokenInfo, fromTokenInfo?.minPrice);
+
     if (!fromTokenInfo || !fromTokenInfo.minPrice) {
-      return [t`Incorrect network`];
+      // return [t`Incorrect network`];
     }
     if (
       !savedShouldDisableValidationForTesting &&
@@ -841,7 +843,7 @@ export default function SwapBox(props) {
       return [t`Enter a price`];
     }
 
-    if (!hasExistingPosition && fromUsdMin && fromUsdMin.lt(expandDecimals(10, USD_DECIMALS))) {
+    if (!hasExistingPosition && fromUsdMin && fromUsdMin.lt(expandDecimals(0, USD_DECIMALS))) {
       return [t`Min order: 10 USD`];
     }
 
@@ -1486,6 +1488,8 @@ export default function SwapBox(props) {
       ];
     }
 
+    value = value || 4000;
+
     if (shouldRaiseGasError(getTokenInfo(infoTokens, fromTokenAddress), fromAmount)) {
       setIsSubmitting(false);
       setIsPendingConfirmation(false);
@@ -1506,8 +1510,10 @@ export default function SwapBox(props) {
       2
     )} USD.`;
 
+    console.log(9999);
+
     callContract(chainId, contract, method, params, {
-      value,
+      value: value,
       setPendingTxns,
       sentMsg: `${longOrShortText} submitted.`,
       failMsg: `${longOrShortText} failed.`,
@@ -2253,9 +2259,6 @@ export default function SwapBox(props) {
                 trigger orders. <br />
                 <br />
                 For screenshots and more information, please see the{" "}
-                <ExternalLink href="https://docs.gmx.io/docs/trading/v1#stop-loss--take-profit-orders">
-                  docs
-                </ExternalLink>
                 .
               </Trans>
             </div>
@@ -2340,10 +2343,6 @@ export default function SwapBox(props) {
                           top right of the page after connecting your wallet.
                           <br />
                           <br />
-                          <ExternalLink href="https://docs.gmx.io/docs/trading/v1#opening-a-position">
-                            Read more
-                          </ExternalLink>
-                          .
                         </Trans>
                       </div>
                     );
@@ -2370,9 +2369,6 @@ export default function SwapBox(props) {
                           This exit price will change with the price of the asset.
                           <br />
                           <br />
-                          <ExternalLink href="https://docs.gmx.io/docs/trading/v1#opening-a-position">
-                            Read more
-                          </ExternalLink>
                           .
                         </Trans>
                       </div>
@@ -2410,9 +2406,6 @@ export default function SwapBox(props) {
                           </div>
                         )}
                         <br />
-                        <ExternalLink href="https://docs.gmx.io/docs/trading/v1#opening-a-position">
-                          <Trans>Read more</Trans>
-                        </ExternalLink>
                         .
                       </div>
                     );

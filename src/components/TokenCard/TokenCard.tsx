@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 import { isHomeSite } from "lib/legacy";
 
 import ExternalLink from "components/ExternalLink/ExternalLink";
-import { ARBITRUM, AVALANCHE } from "config/chains";
+import { ARBITRUM, AVALANCHE, HARMONY } from "config/chains";
 import { getIcon } from "config/icons";
 import { useChainId } from "lib/chains";
 import { switchNetwork } from "lib/wallets";
@@ -95,7 +95,7 @@ export default function TokenCard({ showRedirectModal }: Props) {
 
   return (
     <div className="Home-token-card-options">
-      <div className="Home-token-card-option">
+      {/* <div className="Home-token-card-option">
         <div>
           <div className="Home-token-card-option-icon">
             <img src={gmxIcon} width="40" alt="GMX Icons" /> GMX
@@ -126,8 +126,8 @@ export default function TokenCard({ showRedirectModal }: Props) {
             <Trans>Read more</Trans>
           </ExternalLink>
         </div>
-      </div>
-      <div className="Home-token-card-option">
+      </div> */}
+      {/* <div className="Home-token-card-option">
         <div>
           <div className="Home-token-card-option-icon">
             <img src={gmIcon} alt="gmxBigIcon" /> GM
@@ -171,7 +171,7 @@ export default function TokenCard({ showRedirectModal }: Props) {
             <Trans>Read more</Trans>
           </a>
         </div>
-      </div>
+      </div> */}
       <div className="Home-token-card-option">
         <div>
           <div className="Home-token-card-option-icon">
@@ -190,20 +190,20 @@ export default function TokenCard({ showRedirectModal }: Props) {
                 />
               )}
             </div>
-            <div className="Home-token-card-option-apr">
+            {/* <div className="Home-token-card-option-apr">
               <Trans>Arbitrum APR:</Trans> <APRLabel chainId={ARBITRUM} label="glpAprTotal" key="ARBITRUM" />,{" "}
               <Trans>Avalanche APR:</Trans> <APRLabel chainId={AVALANCHE} label="glpAprTotal" key="AVALANCHE" />
-            </div>
+            </div> */}
           </div>
         </div>
         <div className="Home-token-card-option-action">
           <div className="buy">
-            <BuyLink to="/buy_glp" className="default-btn" network={ARBITRUM}>
-              <Trans>View on Arbitrum</Trans>
+            <BuyLink to="/buy_glp" className="default-btn" network={HARMONY}>
+              <Trans>View on Harmony</Trans>
             </BuyLink>
-            <BuyLink to="/buy_glp" className="default-btn" network={AVALANCHE}>
+            {/* <BuyLink to="/buy_glp" className="default-btn" network={AVALANCHE}>
               <Trans>View on Avalanche</Trans>
-            </BuyLink>
+            </BuyLink> */}
           </div>
           <a
             href="https://docs.gmx.io/docs/providing-liquidity/v1"

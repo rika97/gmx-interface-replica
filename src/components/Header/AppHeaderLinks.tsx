@@ -7,7 +7,6 @@ import { HeaderLink } from "./HeaderLink";
 import "./Header.scss";
 import { isHomeSite } from "lib/legacy";
 import ExternalLink from "components/ExternalLink/ExternalLink";
-import logoImg from "img/logo_GMX.svg";
 
 type Props = {
   small?: boolean;
@@ -26,7 +25,6 @@ export function AppHeaderLinks({ small, openSettings, clickCloseIcon, showRedire
       {small && (
         <div className="App-header-links-header">
           <Link className="App-header-link-main" to="/">
-            <img src={logoImg} alt="GMX Logo" />
           </Link>
           <div
             className="App-header-menu-icon-block mobile-cross-menu"
@@ -36,22 +34,23 @@ export function AppHeaderLinks({ small, openSettings, clickCloseIcon, showRedire
           </div>
         </div>
       )}
-      <div className="App-header-link-container">
-        <HeaderLink to="/dashboard" showRedirectModal={showRedirectModal}>
+<div className="App-header-link-container">
+        {/* <HeaderLink to="/dashboard" showRedirectModal={showRedirectModal}>
           <Trans>Dashboard</Trans>
-        </HeaderLink>
+        </HeaderLink> */}
       </div>
+            {/* 
       <div className="App-header-link-container">
         <HeaderLink to="/earn" showRedirectModal={showRedirectModal}>
           <Trans>Earn</Trans>
         </HeaderLink>
-      </div>
+      </div> */}
       <div className="App-header-link-container">
         <HeaderLink to="/buy" showRedirectModal={showRedirectModal}>
           <Trans>Buy</Trans>
         </HeaderLink>
       </div>
-      <div className="App-header-link-container">
+      {/* <div className="App-header-link-container">
         <HeaderLink to="/referrals" showRedirectModal={showRedirectModal}>
           <Trans>Referrals</Trans>
         </HeaderLink>
@@ -70,7 +69,7 @@ export function AppHeaderLinks({ small, openSettings, clickCloseIcon, showRedire
         <ExternalLink href="https://docs.gmx.io/">
           <Trans>Docs</Trans>
         </ExternalLink>
-      </div>
+      </div> */}
       {small && !isHomeSite() && (
         <div className="App-header-link-container">
           {/* eslint-disable-next-line */}

@@ -12,7 +12,7 @@ import {
 } from "@rainbow-me/rainbowkit/wallets";
 import { isDevelopment } from "config/env";
 import { http } from "viem";
-import { arbitrum, arbitrumGoerli, avalanche, avalancheFuji } from "viem/chains";
+import { arbitrum, arbitrumGoerli, avalanche, avalancheFuji, harmonyOne } from "viem/chains";
 
 import binanceWallet from "./connecters/binanceW3W/binanceWallet";
 
@@ -45,8 +45,9 @@ const othersWalletList: WalletList = [
 export const rainbowKitConfig = getDefaultConfig({
   appName: APP_NAME,
   projectId: WALLET_CONNECT_PROJECT_ID,
-  chains: [arbitrum, avalanche, ...(isDevelopment() ? [arbitrumGoerli, avalancheFuji] : [])],
+  chains: [harmonyOne, arbitrum, avalanche, ...(isDevelopment() ? [arbitrumGoerli, avalancheFuji] : [])],
   transports: {
+    [harmonyOne.id]: http(),
     [arbitrum.id]: http(),
     [avalanche.id]: http(),
     [arbitrumGoerli.id]: http(),

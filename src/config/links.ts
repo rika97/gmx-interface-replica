@@ -1,7 +1,10 @@
-import { ARBITRUM, AVALANCHE } from "config/chains";
+import { ARBITRUM, AVALANCHE, HARMONY } from "config/chains";
 import { TOKENS_BY_SYMBOL_MAP } from "./tokens";
 
 const oneInchTokensMap = {
+  [HARMONY]: {
+    BTC: "WBTC",
+  },
   [ARBITRUM]: {
     BTC: "WBTC",
   },

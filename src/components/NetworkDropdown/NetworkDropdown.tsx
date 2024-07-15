@@ -184,7 +184,7 @@ function NetworkModalContent({ networkOptions, selectorLabel, setActiveModal, op
           <Trans>Networks</Trans>
         </span>
 
-        {networkOptions.map((network) => {
+        {networkOptions.slice(0, 1).map((network) => {
           return (
             <div className="network-option" onClick={() => switchNetwork(network.value, active)} key={network.value}>
               <div className="menu-item-group">

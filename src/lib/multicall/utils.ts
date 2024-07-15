@@ -1,5 +1,5 @@
 import CustomErrors from "abis/CustomErrors.json";
-import { ARBITRUM, ARBITRUM_GOERLI, AVALANCHE, AVALANCHE_FUJI, getFallbackRpcUrl, getRpcUrl } from "config/chains";
+import { ARBITRUM, ARBITRUM_GOERLI, AVALANCHE, AVALANCHE_FUJI, HARMONY, getFallbackRpcUrl, getRpcUrl } from "config/chains";
 import { createPublicClient, http } from "viem";
 import { arbitrum, arbitrumGoerli, avalanche, avalancheFuji } from "viem/chains";
 import { MulticallRequestConfig, MulticallResult } from "./types";
@@ -17,6 +17,18 @@ const CHAIN_BY_CHAIN_ID = {
 };
 
 const BATCH_CONFIGS = {
+  [HARMONY]: {
+    http: {
+      batchSize: 0, // disable batches, here batchSize is the number of eth_calls in a batch
+      wait: 0, // keep this setting in case batches are enabled in future
+    },
+    client: {
+      multicall: {
+        batchSize: 1024 * 1024, // here batchSize is the number of bytes in a multicall
+        wait: 0, // zero delay means formation of a batch in the current macro-task, like setTimeout(fn, 0)
+      },
+    },
+  },
   [ARBITRUM]: {
     http: {
       batchSize: 0, // disable batches, here batchSize is the number of eth_calls in a batch

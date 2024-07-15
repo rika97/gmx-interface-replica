@@ -1,8 +1,16 @@
-import { ARBITRUM, ARBITRUM_GOERLI, AVALANCHE, AVALANCHE_FUJI, ETH_MAINNET } from "./chains";
+import { ARBITRUM, ARBITRUM_GOERLI, AVALANCHE, AVALANCHE_FUJI, ETH_MAINNET, HARMONY } from "./chains";
 import { isDevelopment } from "./env";
 import { getSubgraphUrlKey } from "./localStorage";
 
 const SUBGRAPH_URLS = {
+  [HARMONY]: {
+    stats: "https://subgraph.satsuma-prod.com/3b2ced13c8d9/gmx/gmx-arbitrum-stats/api",
+    referrals: "https://subgraph.satsuma-prod.com/3b2ced13c8d9/gmx/gmx-arbitrum-referrals/api",
+    nissohVault: "https://api.thegraph.com/subgraphs/name/nissoh/gmx-vault",
+    syntheticsStats: "https://subgraph.satsuma-prod.com/3b2ced13c8d9/gmx/synthetics-arbitrum-stats/api",
+    subsquid: "https://gmx.squids.live/gmx-synthetics-arbitrum/graphql",
+  },
+
   [ARBITRUM]: {
     stats: "https://subgraph.satsuma-prod.com/3b2ced13c8d9/gmx/gmx-arbitrum-stats/api",
     referrals: "https://subgraph.satsuma-prod.com/3b2ced13c8d9/gmx/gmx-arbitrum-referrals/api",
@@ -41,6 +49,8 @@ const SUBGRAPH_URLS = {
 };
 
 export function getSubgraphUrl(chainId: number, subgraph: string): string | undefined {
+  // let chainId = ARBITRUM;
+
   if (isDevelopment()) {
     const localStorageKey = getSubgraphUrlKey(chainId, subgraph);
     const url = localStorage.getItem(localStorageKey);
