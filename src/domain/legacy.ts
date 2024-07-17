@@ -14,7 +14,7 @@ import UniPool from "abis/UniPool.json";
 import UniswapV2 from "abis/UniswapV2.json";
 import Vault from "abis/Vault.json";
 
-import { ARBITRUM, ARBITRUM_GOERLI, AVALANCHE, getChainName, getConstant, getHighExecutionFee } from "config/chains";
+import { ARBITRUM, ARBITRUM_GOERLI, AVALANCHE, HARMONY, getChainName, getConstant, getHighExecutionFee } from "config/chains";
 import { getContract } from "config/contracts";
 import { DECREASE, INCREASE, SWAP, USD_DECIMALS, getOrderKey } from "lib/legacy";
 
@@ -383,6 +383,8 @@ export function useExecutionFee(signer, active, chainId, infoTokens) {
   const positionRouterAddress = getContract(chainId, "PositionRouter");
   const nativeTokenAddress = getContract(chainId, "NATIVE_TOKEN");
 
+  console.log(5555);
+
   const { data: minExecutionFee } = useSWR<BigNumber>([active, chainId, positionRouterAddress, "minExecutionFee"], {
     fetcher: contractFetcher(signer, PositionRouter) as any,
   });
@@ -409,7 +411,7 @@ export function useExecutionFee(signer, active, chainId, infoTokens) {
 
   let multiplier;
 
-  if (chainId === ARBITRUM || chainId === ARBITRUM_GOERLI) {
+  if (chainId === HARMONY || chainId === ARBITRUM || chainId === ARBITRUM_GOERLI) {
     multiplier = 2150000;
   }
 
@@ -434,6 +436,8 @@ export function useExecutionFee(signer, active, chainId, infoTokens) {
     t`The network Fees are very high currently, which may be due to a temporary increase in transactions on the ${getChainName(
       chainId
     )} network.`;
+
+  console.log('finalExecutionFee', finalExecutionFee);
 
   return {
     minExecutionFee: finalExecutionFee,

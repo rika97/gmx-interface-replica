@@ -48,7 +48,7 @@ export const PositionShareCard = forwardRef<HTMLDivElement, Props>(
     return (
       <div className="relative">
         <div ref={ref} className="position-share" style={style}>
-          <img className="logo" src={gmxLogo} alt="GMX Logo" />
+          {/* <img className="logo" src={gmxLogo} alt="GMX Logo" /> */}
           <ul className="info">
             <li className="side">{isLong ? "LONG" : "SHORT"}</li>
             <li>{formatAmount(leverage, 4, 2, true)}x&nbsp;</li>
@@ -78,9 +78,9 @@ export const PositionShareCard = forwardRef<HTMLDivElement, Props>(
                   <p className="label">Referral Code:</p>
                   <p className="code">{code}</p>
                 </>
-              ) : (
-                <p className="code">https://gmx.io</p>
-              )}
+              ) : null
+                // <p className="code">https://gmx.io</p>
+              }
             </div>
           </div>
         </div>

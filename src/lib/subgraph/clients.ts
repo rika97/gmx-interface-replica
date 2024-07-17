@@ -71,6 +71,8 @@ export function getGmxGraphClient(chainId: number) {
     return null;
   }
 
+  return null;
+
   throw new Error(`Unsupported chain ${chainId}`);
 }
 

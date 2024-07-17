@@ -1,11 +1,11 @@
 {
-  "short_name": "GMX",
-  "name": "GMX",
+  "short_name": "GX",
+  "name": "GX",
   "description": "Trade spot or perpetual with up to 50x leverage directly from your wallet.",
-  "iconPath": "logo.png",
+  "iconPath": "favicon.png",
   "icons": [
     {
-      "src": "favicon/apple-icon.png",
+      "src": "favicon.png",
       "sizes": "32x32",
       "type": "image/png"
     }

@@ -305,14 +305,20 @@ export default function GlpSwap(props) {
   if (aums && aums.length > 0) {
     aum = isBuying ? aums[0] : aums[1];
   }
+
   const glpPrice =
     aum && aum.gt(0) && glpSupply.gt(0)
       ? aum.mul(expandDecimals(1, GLP_DECIMALS)).div(glpSupply)
       : expandDecimals(1, USD_DECIMALS);
+
+      // : expandDecimals(1, GLP_DECIMALS);
+
   let glpBalanceUsd;
+
   if (glpBalance) {
     glpBalanceUsd = glpBalance.mul(glpPrice).div(expandDecimals(1, GLP_DECIMALS));
   }
+
   const glpSupplyUsd = glpSupply.mul(glpPrice).div(expandDecimals(1, GLP_DECIMALS));
 
   let reserveAmountUsd;
@@ -730,6 +736,8 @@ export default function GlpSwap(props) {
     const method = swapTokenAddress === AddressZero ? "mintAndStakeGlpETH" : "mintAndStakeGlp";
     const params = swapTokenAddress === AddressZero ? [0, minGlp] : [swapTokenAddress, swapAmount, 0, minGlp];
     const value = swapTokenAddress === AddressZero ? swapAmount : 0;
+
+    console.log('mintAndStakeGlp', contract, method, params);
 
     callContract(chainId, contract, method, params, {
       value,

@@ -1566,7 +1566,7 @@ msgid "Decentralized Options Strategies"
 msgstr "Strategien für dezentralisierte Optionen"
 
 #: src/lib/legacy.ts
-msgid "Decentralized Perpetual Exchange | GMX"
+msgid "Decentralized Perpetual Exchange | GX"
 msgstr ""
 
 #: src/pages/Ecosystem/Ecosystem.js
@@ -2543,7 +2543,7 @@ msgid "GMX transfers not yet enabled"
 msgstr ""
 
 #: src/components/Common/SEO.js
-msgid "GMX | Decentralized Perpetual Exchange"
+msgid "GX | Decentralized Perpetual Exchange"
 msgstr ""
 
 #: src/components/Synthetics/SubaccountModal/utils.ts

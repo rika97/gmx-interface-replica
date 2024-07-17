@@ -5,6 +5,7 @@ import {
   AVALANCHE,
   AVALANCHE_FUJI,
   FALLBACK_PROVIDERS,
+  HARMONY,
   getAlchemyWsUrl,
   getFallbackRpcUrl,
   getRpcUrl,
@@ -13,13 +14,13 @@ import { Signer, ethers } from "ethers";
 import { useEffect, useState } from "react";
 
 export function getProvider(signer: undefined, chainId: number): ethers.providers.StaticJsonRpcProvider;
-export function getProvider(signer: Signer, chainId: number): Signer;
+// export function getProvider(signer: Signer, chainId: number): Signer;
 export function getProvider(signer: Signer | undefined, chainId: number);
 export function getProvider(signer: Signer | undefined, chainId: number) {
   let provider;
 
   if (signer) {
-    return signer;
+    // return signer;
   }
 
   provider = getRpcUrl(chainId);
@@ -32,6 +33,10 @@ export function getProvider(signer: Signer | undefined, chainId: number) {
 }
 
 export function getWsProvider(chainId: number): WebSocketProvider | JsonRpcProvider | undefined {
+  if (chainId === HARMONY) {
+    return new ethers.providers.WebSocketProvider(getAlchemyWsUrl());
+  }
+
   if (chainId === ARBITRUM) {
     return new ethers.providers.WebSocketProvider(getAlchemyWsUrl());
   }

@@ -1,9 +1,9 @@
-import { ARBITRUM, AVALANCHE } from "config/chains";
+import { ARBITRUM, AVALANCHE, HARMONY } from "config/chains";
 import { getSubgraphUrl } from "config/subgraph";
 import graphqlFetcher from "lib/graphqlFetcher";
 import useSWR from "swr";
 
-const ACTIVE_CHAIN_IDS = [ARBITRUM, AVALANCHE];
+const ACTIVE_CHAIN_IDS = [ARBITRUM, AVALANCHE, HARMONY];
 
 type UserStatsData = {
   userStats: {

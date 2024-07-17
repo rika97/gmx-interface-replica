@@ -4,7 +4,7 @@ import ConnectWalletButton from "../Common/ConnectWalletButton";
 
 import { Trans } from "@lingui/macro";
 import cx from "classnames";
-import { ARBITRUM, ARBITRUM_GOERLI, AVALANCHE, AVALANCHE_FUJI, getChainName } from "config/chains";
+import { ARBITRUM, ARBITRUM_GOERLI, AVALANCHE, AVALANCHE_FUJI, HARMONY, getChainName } from "config/chains";
 import { isDevelopment } from "config/env";
 import { getIcon } from "config/icons";
 import { useChainId } from "lib/chains";
@@ -26,32 +26,38 @@ type Props = {
 
 const NETWORK_OPTIONS = [
   {
-    label: getChainName(ARBITRUM),
-    value: ARBITRUM,
-    icon: getIcon(ARBITRUM, "network"),
+    label: getChainName(HARMONY),
+    value: HARMONY,
+    icon: getIcon(HARMONY, "network"),
     color: "#264f79",
   },
-  {
-    label: getChainName(AVALANCHE),
-    value: AVALANCHE,
-    icon: getIcon(AVALANCHE, "network"),
-    color: "#E841424D",
-  },
+  // {
+  //   label: getChainName(ARBITRUM),
+  //   value: ARBITRUM,
+  //   icon: getIcon(ARBITRUM, "network"),
+  //   color: "#264f79",
+  // },
+  // {
+  //   label: getChainName(AVALANCHE),
+  //   value: AVALANCHE,
+  //   icon: getIcon(AVALANCHE, "network"),
+  //   color: "#E841424D",
+  // },
 ];
 
 if (isDevelopment()) {
-  NETWORK_OPTIONS.push({
-    label: getChainName(ARBITRUM_GOERLI),
-    value: ARBITRUM_GOERLI,
-    icon: getIcon(ARBITRUM_GOERLI, "network"),
-    color: "#264f79",
-  });
-  NETWORK_OPTIONS.push({
-    label: getChainName(AVALANCHE_FUJI),
-    value: AVALANCHE_FUJI,
-    icon: getIcon(AVALANCHE_FUJI, "network"),
-    color: "#E841424D",
-  });
+  // NETWORK_OPTIONS.push({
+  //   label: getChainName(ARBITRUM_GOERLI),
+  //   value: ARBITRUM_GOERLI,
+  //   icon: getIcon(ARBITRUM_GOERLI, "network"),
+  //   color: "#264f79",
+  // });
+  // NETWORK_OPTIONS.push({
+  //   label: getChainName(AVALANCHE_FUJI),
+  //   value: AVALANCHE_FUJI,
+  //   icon: getIcon(AVALANCHE_FUJI, "network"),
+  //   color: "#E841424D",
+  // });
 }
 
 export function AppHeaderUser({ openSettings, small, disconnectAccountAndCloseSettings, showRedirectModal }: Props) {

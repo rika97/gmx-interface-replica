@@ -1,5 +1,5 @@
 import { ethers } from "ethers";
-import { ARBITRUM, ARBITRUM_GOERLI, AVALANCHE, AVALANCHE_FUJI, BSС_MAINNET, BSС_TESTNET } from "./chains";
+import { ARBITRUM, ARBITRUM_GOERLI, AVALANCHE, AVALANCHE_FUJI, BSС_MAINNET, BSС_TESTNET, HARMONY } from "./chains";
 
 const { AddressZero } = ethers.constants;
 
@@ -11,6 +11,46 @@ export const XGMT_EXCLUDED_ACCOUNTS = [
 ];
 
 const CONTRACTS = {
+  [HARMONY]: {
+    // harmony mainnet
+    PositionRouter: "0xA079d0820D008B1aF5B11288F2f36De74ae98E33",
+    PositionManager: "0x497302943C5313D78E5DBC5DEC1D4dE728CD9e23",
+    Vault: "0x20cE89DC95602104bFEB31e081Ce274a43CA47A3",
+    Router: "0x240af9b1Df1EF5Ab226588E4824dF868700E8A8c",
+    VaultReader: "0x7a5dc48DcE91280eb2BBbEcDD0052b2202a493c2",
+    Reader: "0xC2a835c2DeC01A90728b39dB7E0aa7eD87aCddcd",
+    GlpManager: "0x16a50725Be913a12242D3cD8b70893f710C83227",
+    RewardRouter: "0x763815f4B18AC0F570f1Fa1e85aB9aee18B7A192", // --
+    GlpRewardRouter: "0x763815f4B18AC0F570f1Fa1e85aB9aee18B7A192",
+    RewardReader: "0x475d5014323DD4CBEC13eff489e580CBB1Bf7245",
+    // GovToken: "0x2A29D3a792000750807cc401806d6fd539928481",
+    NATIVE_TOKEN: "0xcF664087a5bB0237a0BAd6742852ec6c8d69A27a",
+    GLP: "0x49FB9FcAc794037F0e7275bd63e1966b5C8Ae6DE",
+    GMX: "0x7B6F1e5bdc10855B41ccAb4d24316857fE16508F",
+    ES_GMX: "0xE07d72A9F5630d3B05e45992355e6c497407A3e1",
+    BN_GMX: "0x26dcaf56bC7D7005d4CAa167b549E9F1aEBc2383",
+    USDG: "0xC4e3F970AD9ddf1550b2D1f89e2e501497E4d21D",
+    // ES_GMX_IOU: "0x6260101218eC4cCfFF1b778936C6f2400f95A954",
+    StakedGmxTracker: "0xAE8f964FE026a046D1CE6Be9081529f1629c09eD",
+    BonusGmxTracker: "0x783c12B1300718cddCa60c3FA68b083F16aae9AF",
+    FeeGmxTracker: "0x0D62799E272C47fF05e0BE67F2adF32266615f29",
+    StakedGlpTracker: "0xF9a3587F245FF85001d4D5b8d66CD31E52B80b34",
+    FeeGlpTracker: "0x6A73B809AC099B8720e99BfB395C644B27A19e21",
+
+    // Synthetics
+    DataStore: "0xbA2314b0f71ebC705aeEBeA672cc3bcEc510D03b",
+    EventEmitter: "0x2fbE45fCb58B7106CF0a3Be9225D5Ed5A1004cc4",
+    ExchangeRouter: "0xFE98518C9c8F1c5a216E999816c2dE3199f295D2",
+    SubaccountRouter: "0x4Ae6ecDD55ee1066477Ee4B5Fc9f4D04C4CE66E9",
+    DepositVault: "0x838a9bdf8736eD522A60F5f715e4F3FC2BC91A08",
+    WithdrawalVault: "0xaAac001C2a2727Ff2d484C4Ad7d2079C7094e7Ef",
+    OrderVault: "0x82aFd2590814a7Ce3d7ea6b63F80481F8b227bA9",
+    SyntheticsReader: "0xab747a7bb64B74D78C6527C1F148808a19120475",
+    SyntheticsRouter: "0xa960786Bc30F8587279df6116F9E0B15C5b034dE",
+    Timelock: AddressZero,
+
+    Multicall: "0x34b415f4d3b332515e66f70595ace1dcf36254c5",
+  },
   [BSС_MAINNET]: {
     // bsc mainnet
     Treasury: "0xa44E7252a0C137748F523F112644042E5987FfC7",
@@ -309,7 +349,8 @@ export function getContract(chainId: number, name: string): string {
   }
 
   if (!CONTRACTS[chainId][name]) {
-    throw new Error(`Unknown contract "${name}" for chainId ${chainId}`);
+    return AddressZero;
+    // throw new Error(`Unknown contract "${name}" for chainId ${chainId}`);
   }
 
   return CONTRACTS[chainId][name];
