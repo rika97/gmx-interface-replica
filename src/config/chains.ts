@@ -189,7 +189,7 @@ const constants = {
   [HARMONY]: {
     nativeTokenSymbol: "ONE",
     wrappedTokenSymbol: "WONE",
-    defaultCollateralSymbol: "USDC.e",
+    defaultCollateralSymbol: "USDC",
     defaultFlagOrdersEnabled: false,
     positionReaderPropsLength: 9,
     v2: false,
@@ -248,6 +248,7 @@ export const FALLBACK_PROVIDERS = {
     "https://ava-testnet.public.blastapi.io/ext/bc/C/rpc",
   ],
   [ARBITRUM_GOERLI]: ["https://arb-goerli.g.alchemy.com/v2/cZfd99JyN42V9Clbs_gOvA3GSBZH1-1j"],
+  [HARMONY]: ["https://api.harmony.one"],
 };
 
 export const NETWORK_METADATA: { [chainId: number]: NetworkMetadata } = {

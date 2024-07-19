@@ -28,7 +28,7 @@ export default function PageTitle({
     <div className={classNames}>
       <div className="Page-title-group">
         <h2 className="Page-title__text">{title}</h2>
-        {showNetworkIcon && <img className="Page-title__icon" src={currentNetworkIcon} alt="Current Network Icon" />}
+        {/* {showNetworkIcon && <img className="Page-title__icon" src={currentNetworkIcon} alt="Current Network Icon" />} */}
         {afterTitle}
       </div>
       <div className="Page-subtitle-group">{subtitle}</div>

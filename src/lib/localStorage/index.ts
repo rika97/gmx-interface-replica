@@ -1,12 +1,16 @@
 import { useCallback } from "react";
 import { useLocalStorage } from "react-use";
 
+const version = '0.0.1';
+
 export function useLocalStorageByChainId<T>(
-  chainId: number,
+  chainIdOriginal: number,
   key: string,
   defaultValue: T
 ): [T | undefined, (value: T) => void] {
   const [internalValue, setInternalValue] = useLocalStorage(key, {});
+
+  const chainId = `${chainIdOriginal}.${version}`;
 
   const setValue = useCallback(
     (value) => {

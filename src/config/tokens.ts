@@ -14,19 +14,8 @@ export const TOKENS: { [chainId: number]: Token[] } = {
       address: ethers.constants.AddressZero,
       isNative: true,
       isShortable: true,
-      imageUrl: "https://assets.coingecko.com/coins/images/279/small/ethereum.png?1595348880",
-      coingeckoUrl: "https://www.coingecko.com/en/coins/ethereum",
-      isV1Available: true,
-    },
-    {
-      name: "Bridged USDC (USDC.e)",
-      symbol: "USDC.e",
-      decimals: 6,
-      address: "0xFF970A61A04b1cA14834A43f5dE4533eBDDB5CC8",
-      isStable: true,
-      imageUrl: "https://assets.coingecko.com/coins/images/6319/thumb/USD_Coin_icon.png?1547042389",
-      coingeckoUrl: "https://www.coingecko.com/en/coins/bridged-usdc-arbitrum",
-      explorerUrl: "https://arbiscan.io/token/0x9A89d0e1b051640C6704Dde4dF881f73ADFEf39a",
+      imageUrl: "https://etherscan.io/token/images/harmonyone_32.png",
+      coingeckoUrl: "https://www.coingecko.com/en/coins/harmonyone",
       isV1Available: true,
     },
     {
@@ -36,31 +25,78 @@ export const TOKENS: { [chainId: number]: Token[] } = {
       address: "0xcF664087a5bB0237a0BAd6742852ec6c8d69A27a",
       isWrapped: true,
       baseSymbol: "ONE",
-      imageUrl: "https://assets.coingecko.com/coins/images/2518/thumb/weth.png?1628852295",
-      coingeckoUrl: "https://www.coingecko.com/en/coins/ethereum",
+      imageUrl: "https://etherscan.io/token/images/harmonyone_32.png",
+      coingeckoUrl: "https://www.coingecko.com/en/coins/harmonyone",
       isV1Available: true,
     },
     {
-      name: "BUSD",
-      symbol: "BUSD",
+      name: "GMX XP",
+      symbol: "GXP",
+      address: "0xd74688c1e65482d6DfD59880bF542A15CB2F388E",
       decimals: 18,
-      address: "0x1Aa1F7815103c0700b98f24138581b88d4cf9769",
+      imageUrl: "https://github.com/gmx-io/gmx-assets/blob/main/GMX-Assets/PNG/GLP_LOGO%20ONLY.png?raw=true",
+      reservesUrl: "https://portfolio.nansen.ai/dashboard/gmx?chain=HARMONY",
+      isPlatformToken: true,
+    },
+
+    // {
+    //   name: "BUSD",
+    //   symbol: "BUSD",
+    //   decimals: 18,
+    //   address: "0x1Aa1F7815103c0700b98f24138581b88d4cf9769",
+    //   isStable: true,
+    //   isV1Available: true,
+    //   imageUrl: "https://etherscan.io/token/images/wormholebusdtoken_32.png",
+    //   coingeckoUrl: "https://www.coingecko.com/en/coins/usd-coin",
+    //   explorerUrl: "https://explorer.harmony.one/token/0x1Aa1F7815103c0700b98f24138581b88d4cf9769",
+    // },
+    {
+      name: "Tether",
+      symbol: "USDT",
+      decimals: 6,
+      address: "0xF2732e8048f1a411C63e2df51d08f4f52E598005",
       isStable: true,
       isV1Available: true,
-      imageUrl: "https://etherscan.io/token/images/wormholebusdtoken_32.png",
+      imageUrl: "https://etherscan.io/token/images/tethernew_32.png",
       coingeckoUrl: "https://www.coingecko.com/en/coins/usd-coin",
-      explorerUrl: "https://explorer.harmony.one/address/0x1Aa1F7815103c0700b98f24138581b88d4cf9769",
+      explorerUrl: "https://explorer.harmony.one/token/0xF2732e8048f1a411C63e2df51d08f4f52E598005",
     },
     {
-      name: "LINK",
-      symbol: "LINK",
-      decimals: 18,
-      address: "0x218532a12a389a4a92fC0C5Fb22901D1c19198aA",
+      name: "USD Coin",
+      symbol: "USDC",
+      decimals: 6,
+      address: "0xBC594CABd205bD993e7FfA6F3e9ceA75c1110da5",
       isStable: true,
       isV1Available: true,
-      imageUrl: "https://etherscan.io/token/images/chainlinktoken_32.png?v=6",
-      coingeckoUrl: "https://www.coingecko.com/en/coins/link-coin",
-      explorerUrl: "https://explorer.harmony.one/address/0x218532a12a389a4a92fC0C5Fb22901D1c19198aA",
+      imageUrl: "https://etherscan.io/token/images/centre-usdc_28.png",
+      coingeckoUrl: "https://www.coingecko.com/en/coins/usd-coin",
+      explorerUrl: "https://explorer.harmony.one/token/0xBC594CABd205bD993e7FfA6F3e9ceA75c1110da5",
+    },
+    {
+      name: "Wrapped BTC",
+      symbol: "WBTC",
+      assetSymbol: "WBTC",
+      decimals: 8,
+      address: "0x118f50d23810c5E09Ebffb42d7D3328dbF75C2c2",
+      isStable: false,
+      isV1Available: true,
+      isShortable: true,
+      imageUrl: "https://assets.coingecko.com/coins/images/26115/thumb/btcb.png?1655921693",
+      coingeckoUrl: "https://www.coingecko.com/en/coins/wrapped-bitcoin",
+      explorerUrl: "https://explorer.harmony.one/token/0x118f50d23810c5E09Ebffb42d7D3328dbF75C2c2",
+    },
+    {
+      name: "Ethereum",
+      symbol: "ETH",
+      assetSymbol: "1ETH",
+      decimals: 18,
+      address: "0x4cC435d7b9557d54d6EF02d69Bbf72634905Bf11",
+      isStable: false,
+      isV1Available: true,
+      isShortable: true,
+      imageUrl: "https://assets.coingecko.com/coins/images/279/small/ethereum.png?1595348880",
+      coingeckoUrl: "https://www.coingecko.com/en/coins/ethereum",
+      explorerUrl: "https://explorer.harmony.one/token/0x4cC435d7b9557d54d6EF02d69Bbf72634905Bf11",
     },
   ],
 
@@ -1095,8 +1131,10 @@ export function getTokenBySymbol(
   symbold: string,
   { isSynthetic = false, version }: { isSynthetic?: boolean; version?: "v1" | "v2" } = {}
 ) {
-  let symbol = symbold === 'WONE' ? 'WETH': symbold;
-  symbol = symbol === 'ONE' ? 'ETH': symbol;
+  let symbol = symbold === 'WONE' ? 'WONE': symbold;
+  symbol = symbol === 'ONE' ? 'ONE': symbol;
+
+  symbol = symbol === 'GLP' ? 'GXP': symbol;
 
   let tokens = Object.values(TOKENS_MAP[chainId]);
 
@@ -1139,7 +1177,7 @@ export function convertTokenAddress(chainId: number, address: string, convertTo?
 }
 
 export function getNormalizedTokenSymbol(tokenSymbol) {
-  if (["WBTC", "WETH", "WAVAX"].includes(tokenSymbol)) {
+  if (["WBTC", "WONE", "WETH", "WAVAX"].includes(tokenSymbol)) {
     return tokenSymbol.substr(1);
   } else if (tokenSymbol.includes(".")) {
     return tokenSymbol.split(".")[0];

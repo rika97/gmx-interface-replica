@@ -385,9 +385,6 @@ function UnstakeModal(props) {
           <AlertInfo type="warning">
             <Trans>
               Unstaking will burn&nbsp;
-              <ExternalLink className="display-inline" href="https://docs.gmx.io/docs/tokenomics/rewards">
-                {formatAmount(burnAmount, 18, 2, true)} Multiplier Points
-              </ExternalLink>
               {chainId === ARBITRUM ? (
                 <span>&nbsp;and {formatAmount(votingPowerBurnAmount, 18, 2, true)} voting power.&nbsp;</span>
               ) : (
@@ -1673,10 +1670,6 @@ export default function StakeV2() {
           return (
             <Trans>
               Boost your rewards with Multiplier Points.&nbsp;
-              <ExternalLink href="https://docs.gmx.io/docs/tokenomics/rewards#multiplier-points">
-                Read more
-              </ExternalLink>
-              .
             </Trans>
           );
         }}
@@ -1846,11 +1839,6 @@ export default function StakeV2() {
         title={t`Earn`}
         subtitle={
           <div>
-            <Trans>
-              Stake <ExternalLink href="https://docs.gmx.io/docs/tokenomics/gmx-token">GMX</ExternalLink> and buy{" "}
-              <ExternalLink href="https://docs.gmx.io/docs/providing-liquidity/v2">GM</ExternalLink> or{" "}
-              <ExternalLink href="https://docs.gmx.io/docs/providing-liquidity/v1">GLP</ExternalLink> to earn rewards.
-            </Trans>
             {earnMsg && <div className="Page-description">{earnMsg}</div>}
             {(incentiveStats?.lp?.isActive || incentiveStats?.trading?.isActive) && (
               <div>
@@ -2518,9 +2506,6 @@ export default function StakeV2() {
               Convert esGMX tokens to GMX tokens.
               <br />
               Please read the{" "}
-              <ExternalLink href="https://docs.gmx.io/docs/tokenomics/rewards#vesting">
-                vesting details
-              </ExternalLink>{" "}
               before using the vaults.
             </Trans>
           }
